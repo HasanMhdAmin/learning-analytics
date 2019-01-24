@@ -2,7 +2,8 @@ var maleOral = 0;
 var maleWritten = 0;
 var femaleOral = 0;
 var femaleWritten = 0;
-var male = [];
+var oral = [];
+var written = [];
 
 
 d3.csv('data-set/student-data-set.csv')
@@ -30,21 +31,22 @@ d3.csv('data-set/student-data-set.csv')
             {
                 maleWritten++;
             }
-            // return d.gender;
         })
-        console.log("==============================");
-        console.log("---- femaleOral " + femaleOral);
-        console.log("---- femaleWritten " + femaleWritten);
-        console.log("---- maleOral " + maleOral);
-        console.log("---- maleWritten " + maleWritten);
-        console.log("==============================");
 
-        male = {
-            Orale: maleOral,
-            Written: maleWritten
-        };
-        console.log("maleArray: ");
-        console.log(male);
+
+        // create oral and written array, this is [key, value] array
+        oral = {maleOral, femaleOral};
+        written = {maleWritten, femaleWritten};
+        
+        //convert oral, written array to only value array without key
+        var oralData = [];
+        for (var key in oral) {
+            oralData = oralData.concat(oral[key]);
+        }
+        var writtenData = [];
+        for (var key in written) {
+            writtenData = writtenData.concat(written[key]);
+        }
 
 
         var chartdata = {
@@ -105,6 +107,12 @@ d3.csv('data-set/student-data-set.csv')
 
             }]
         };
+
+
+        // update the value of series to draw the chart
+        chartdata.series[0].data = oralData;
+        chartdata.series[1].data = writtenData;
+
         Highcharts.chart('container', chartdata);
 
     })
