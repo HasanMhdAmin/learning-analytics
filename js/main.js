@@ -107,9 +107,9 @@ d3.csv('data-set/student-data-set.csv')
         // written = {maleWritten, femaleWritten};
 
         //################ level of education Section ################
-        xAxisLable = ["bachelor's degree", "college", "master's degree", "associate's degree", "high school"];
-        oral = {bachelorOral, collegeOral, masterOral, associateOral, hiSchoolOral};
-        written = {bachelorWritten, collegeWritten, masterWritten, associateWritten, hiSchoolWritten};
+        xAxisLable = get_levelOfEducation_xAxisLable();
+        oral = get_levelOfEducation_OralData(data);
+        written = get_levelOfEducation_WrittenData(data);
 
 
         
