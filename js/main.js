@@ -1,7 +1,28 @@
+// gender
 var maleOral = 0;
 var maleWritten = 0;
 var femaleOral = 0;
 var femaleWritten = 0;
+
+
+// level of education
+var bachelorOral = 0;
+var bachelorWritten = 0;
+
+var collegeOral = 0;
+var collegeWritten = 0;
+
+var masterOral = 0;
+var masterWritten = 0;
+
+var associateOral = 0;
+var associateWritten = 0;
+
+var hiSchoolOral = 0;
+var hiSchoolWritten = 0;
+
+
+
 var oral = [];
 var written = [];
 
@@ -15,6 +36,7 @@ d3.csv('data-set/student-data-set.csv')
         data.map(function (d)
         {
 
+            //################ Gender Section ################
             if (d.gender == "female" && d.result == "r")
             {
                 femaleOral++;
@@ -31,12 +53,65 @@ d3.csv('data-set/student-data-set.csv')
             {
                 maleWritten++;
             }
+
+
+            //################ level of education Section ################
+            if (d.level_of_education == "bachelor's degree" && d.result == "r")
+            {
+                bachelorOral++;
+            }
+            if (d.level_of_education == "bachelor's degree" && d.result == "w")
+            {
+                bachelorWritten++;
+            }
+            if (d.level_of_education == "college" && d.result == "r")
+            {
+                collegeOral++;
+            }
+            if (d.level_of_education == "college" && d.result == "w")
+            {
+                collegeWritten++;
+            }
+            if (d.level_of_education == "master's degree" && d.result == "r")
+            {
+                masterOral++;
+            }
+            if (d.level_of_education == "master's degree" && d.result == "w")
+            {
+                masterWritten++;
+            }
+            if (d.level_of_education == "associate's degree" && d.result == "r")
+            {
+                associateOral++;
+            }
+            if (d.level_of_education == "associate's degree" && d.result == "w")
+            {
+                associateWritten++;
+            }
+            if (d.level_of_education == "high school" && d.result == "r")
+            {
+                hiSchoolOral++;
+            }
+            if (d.level_of_education == "high school" && d.result == "w")
+            {
+                hiSchoolWritten++;
+            }
+
         })
 
 
         // create oral and written array, this is [key, value] array
-        oral = {maleOral, femaleOral};
-        written = {maleWritten, femaleWritten};
+        //################ Gender Section ################
+        // xAxisLable = ['Male', 'Female'];
+        // oral = {maleOral, femaleOral};
+        // written = {maleWritten, femaleWritten};
+
+        //################ level of education Section ################
+        xAxisLable = ["bachelor's degree", "college", "master's degree", "associate's degree", "high school"];
+        oral = {bachelorOral, collegeOral, masterOral, associateOral, hiSchoolOral};
+        written = {bachelorWritten, collegeWritten, masterWritten, associateWritten, hiSchoolWritten};
+
+
         
         //convert oral, written array to only value array without key
         var oralData = [];
@@ -64,10 +139,7 @@ d3.csv('data-set/student-data-set.csv')
             },
             xAxis:
             {
-                categories: [
-                    'Male',
-                    'Female'
-                ],
+                categories: [],
                 crosshair: true
             },
             yAxis:
@@ -98,12 +170,12 @@ d3.csv('data-set/student-data-set.csv')
             series: [
             {
                 name: 'Orale',
-                data: [maleOral, femaleOral]
+                data: []
 
             },
             {
                 name: 'Written',
-                data: [maleWritten, femaleWritten]
+                data: []
 
             }]
         };
@@ -112,6 +184,10 @@ d3.csv('data-set/student-data-set.csv')
         // update the value of series to draw the chart
         chartdata.series[0].data = oralData;
         chartdata.series[1].data = writtenData;
+
+        // update the name of X axis
+        chartdata.xAxis.categories = xAxisLable;
+
 
         Highcharts.chart('container', chartdata);
 

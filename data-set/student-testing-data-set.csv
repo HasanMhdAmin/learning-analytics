@@ -1,4 +1,4 @@
-gender,ethnicity,level of education,lunch,test preparation course,reading score,writing score,result
+gender,ethnicity,level_of_education,lunch,test_preparation_course,reading_score,writing_score,result
 female,group C,high school,free/reduced,completed,60,60,b
 female,group C,college,free/reduced,completed,73,71,r
 female,group B,bachelor's degree,free/reduced,none,85,87,w
