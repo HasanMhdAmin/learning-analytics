@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<!-- Required meta tags -->
+        <meta charset="utf-8">
+		
+		<!-- D3.js JS -->
+        <script type="text/javascript" src="d3.min.js"></script>
+		
+		<title>D3.js Hands-on</title>
+    </head>
+    <body>
+		<style>
+			.bar {fill: steelblue;}
+			.bar:hover {fill: teal;}
+		</style>
+		
+		<svg></svg>
+
+		<script>
+			var data_static = [{assignments: "Assignment 1", max: "10", average: "8", students: "50"},
+						{assignments: "Assignment 2", max: "10", average: "7.5", students: "80"},
+						{assignments: "Assignment 3", max: "10", average: "8", students: "50"},
+						{assignments: "Assignment 4", max: "10", average: "4", students: "60"},
+						{assignments: "Assignment 5", max: "10", average: "9", students: "65"},
+						{assignments: "Assignment 6", max: "10", average: "6", students: "55"},
+						{assignments: "Assignment 7", max: "10", average: "4", students: "25"},
+						{assignments: "Assignment 8", max: "10", average: "4", students: "75"},
+						{assignments: "Assignment 9", max: "10", average: "6.5", students: "80"},
+						{assignments: "Assignment 10", max: "10", average: "8", students: "50"}]
+						
+			var width = 800;
+			var height = 400;
+			var margin = {top: 20, right: 10, bottom: 40, left: 30};
+			
+			//------------------ Task 1 - Start ------------------
+			var svg = d3.select('svg')
+				.attr("width", width)
+				.attr("height", height)
+				.attr("style","background:lightblue");
+			//------------------ Task 1 - End ------------------
+
+			//------------------ Task 2 - Start ------------------
+			d3.csv('Assignment-Data.csv')
+				.then(function(data) {
+					//------------------ Task 3 - Start ------------------
+					var max_value = d3.max(data, function(d, i) { return d.average });
+					var min_value = 0;
+					
+					var yScale = d3.scaleLinear()
+						.domain([min_value, max_value])
+						.range([height - margin.bottom, margin.top]);
+						
+					var xScale = d3.scaleBand()
+						.domain(data.map(function(d) { return d.assignments; }))
+						.rangeRound([margin.left, width - margin.right])
+						.padding(0.3);
+					//------------------ Task 3 - End ------------------
+					
+					//------------------ Task 4 - Start ------------------
+					svg.append('g')
+						.attr("transform", "translate(0," + (height-margin.bottom) + ")")
+						.call(d3.axisBottom(xScale));
+						
+					svg.append('g')
+						.attr("transform", "translate(" + margin.left + ",0)")
+						.call(d3.axisLeft(yScale));
+					//------------------ Task 4 - End ------------------
+					
+					//------------------ Task 5 - Start ------------------
+					svg.selectAll(".bar")
+						.data(data)
+						.enter()
+						.append("rect")
+						.attr("class", "bar")
+						.attr("x", function (d) {return xScale(d.assignments);})
+						.attr("y", function (d) {return yScale(Number(d.average));})
+						.attr("width", xScale.bandwidth())
+						.attr("height", function (d) {
+							return height - margin.bottom - yScale(Number(d.average));
+						});
+					//------------------ Task 5 - End ------------------
+					
+					//------------------ Task 6 - Start ------------------
+					svg.selectAll(".label")  		
+						.data(data)
+						.enter()
+						.append("text")
+						.attr("class", "label")
+						.text(function(d) {return d.average;})
+						.attr("x", function(d) {return xScale(d.assignments)+ xScale.bandwidth()/2 - this.getBBox().width/2;})
+						.attr("y", function(d) {return yScale(Number(d.average))-5;});
+					
+					svg.append("text")
+						.text("Assignments")
+						.attr("y", height-5)
+						.attr("x", width/2);
+					
+					svg.append("text")
+						.attr("transform", "rotate(-90)")
+						.text("Average Marks")
+						.attr("y", 10)
+						.attr("x", -(height/2))
+						.attr("text-anchor", "end");
+					//------------------ Task 6 - End ------------------
+			  });
+			  //------------------ Task 2 - End ------------------
+		</script>
+    </body>
+</html>  
