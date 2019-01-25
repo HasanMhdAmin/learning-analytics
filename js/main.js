@@ -1,28 +1,3 @@
-// gender
-var maleOral = 0;
-var maleWritten = 0;
-var femaleOral = 0;
-var femaleWritten = 0;
-
-
-// level of education
-var bachelorOral = 0;
-var bachelorWritten = 0;
-
-var collegeOral = 0;
-var collegeWritten = 0;
-
-var masterOral = 0;
-var masterWritten = 0;
-
-var associateOral = 0;
-var associateWritten = 0;
-
-var hiSchoolOral = 0;
-var hiSchoolWritten = 0;
-
-
-
 var oral = [];
 var written = [];
 
@@ -33,78 +8,11 @@ d3.csv('data-set/student-data-set.csv')
         var max_value = 1000;
         var min_value = 0;
 
-        data.map(function (d)
-        {
-
-            //################ Gender Section ################
-            if (d.gender == "female" && d.result == "r")
-            {
-                femaleOral++;
-            }
-            if (d.gender == "female" && d.result == "w")
-            {
-                femaleWritten++;
-            }
-            if (d.gender == "male" && d.result == "r")
-            {
-                maleOral++;
-            }
-            if (d.gender == "male" && d.result == "w")
-            {
-                maleWritten++;
-            }
-
-
-            //################ level of education Section ################
-            if (d.level_of_education == "bachelor's degree" && d.result == "r")
-            {
-                bachelorOral++;
-            }
-            if (d.level_of_education == "bachelor's degree" && d.result == "w")
-            {
-                bachelorWritten++;
-            }
-            if (d.level_of_education == "college" && d.result == "r")
-            {
-                collegeOral++;
-            }
-            if (d.level_of_education == "college" && d.result == "w")
-            {
-                collegeWritten++;
-            }
-            if (d.level_of_education == "master's degree" && d.result == "r")
-            {
-                masterOral++;
-            }
-            if (d.level_of_education == "master's degree" && d.result == "w")
-            {
-                masterWritten++;
-            }
-            if (d.level_of_education == "associate's degree" && d.result == "r")
-            {
-                associateOral++;
-            }
-            if (d.level_of_education == "associate's degree" && d.result == "w")
-            {
-                associateWritten++;
-            }
-            if (d.level_of_education == "high school" && d.result == "r")
-            {
-                hiSchoolOral++;
-            }
-            if (d.level_of_education == "high school" && d.result == "w")
-            {
-                hiSchoolWritten++;
-            }
-
-        })
-
-
         // create oral and written array, this is [key, value] array
         //################ Gender Section ################
-        // xAxisLable = ['Male', 'Female'];
-        // oral = {maleOral, femaleOral};
-        // written = {maleWritten, femaleWritten};
+        // xAxisLable = get_gender_xAxisLable();
+        // oral = get_gender_OralData(data);
+        // written = get_gender_WrittenData(data);
 
         //################ level of education Section ################
         xAxisLable = get_levelOfEducation_xAxisLable();
