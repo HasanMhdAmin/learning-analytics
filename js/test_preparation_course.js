@@ -14,14 +14,11 @@ function get_test_preparation_course_Values(data) {
     //################ Gender Section ################
     if (d.test_preparation_course == "none" && d.result == "r") {
       none_Oral++;
-    }
-    if (d.test_preparation_course == "none" && d.result == "w") {
+    } else if (d.test_preparation_course == "none" && d.result == "w") {
       none_Written++;
-    }
-    if (d.test_preparation_course == "completed" && d.result == "r") {
+    } else if (d.test_preparation_course == "completed" && d.result == "r") {
       completed_Oral++;
-    }
-    if (d.test_preparation_course == "completed" && d.result == "w") {
+    } else if (d.test_preparation_course == "completed" && d.result == "w") {
       completed_Written++;
     }
   });

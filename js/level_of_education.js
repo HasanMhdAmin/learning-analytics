@@ -1,97 +1,88 @@
 var oral = [];
 var written = [];
 
+function get_levelOfEduvation_Values(data) {
+  var bachelorOral = 0;
+  var bachelorWritten = 0;
 
-function  get_levelOfEduvation_Values(data) {
+  var collegeOral = 0;
+  var collegeWritten = 0;
 
-	var bachelorOral = 0;
-	var bachelorWritten = 0;
+  var masterOral = 0;
+  var masterWritten = 0;
 
-	var collegeOral = 0;
-	var collegeWritten = 0;
+  var associateOral = 0;
+  var associateWritten = 0;
 
-	var masterOral = 0;
-	var masterWritten = 0;
+  var hiSchoolOral = 0;
+  var hiSchoolWritten = 0;
 
-	var associateOral = 0;
-	var associateWritten = 0;
+  oral = [];
+  written = [];
 
-	var hiSchoolOral = 0;
-	var hiSchoolWritten = 0;
+  data.map(function(d) {
+    //################ level of education Section ################
+    if (d.level_of_education == "bachelor's degree" && d.result == "r") {
+      bachelorOral++;
+    } else if (d.level_of_education == "bachelor's degree" && d.result == "w") {
+      bachelorWritten++;
+    } else if (d.level_of_education == "college" && d.result == "r") {
+      collegeOral++;
+    } else if (d.level_of_education == "college" && d.result == "w") {
+      collegeWritten++;
+    } else if (d.level_of_education == "master's degree" && d.result == "r") {
+      masterOral++;
+    } else if (d.level_of_education == "master's degree" && d.result == "w") {
+      masterWritten++;
+    } else if (
+      d.level_of_education == "associate's degree" &&
+      d.result == "r"
+    ) {
+      associateOral++;
+    } else if (
+      d.level_of_education == "associate's degree" &&
+      d.result == "w"
+    ) {
+      associateWritten++;
+    } else if (d.level_of_education == "high school" && d.result == "r") {
+      hiSchoolOral++;
+    } else if (d.level_of_education == "high school" && d.result == "w") {
+      hiSchoolWritten++;
+    }
+  });
 
-	oral = [];
-	written = [];
-
-	data.map(function (d) {
-
-		//################ level of education Section ################
-		if (d.level_of_education == "bachelor's degree" && d.result == "r") {
-			bachelorOral++;
-		}
-		if (d.level_of_education == "bachelor's degree" && d.result == "w") {
-			bachelorWritten++;
-		}
-		if (d.level_of_education == "college" && d.result == "r") {
-			collegeOral++;
-		}
-		if (d.level_of_education == "college" && d.result == "w") {
-			collegeWritten++;
-		}
-		if (d.level_of_education == "master's degree" && d.result == "r") {
-			masterOral++;
-		}
-		if (d.level_of_education == "master's degree" && d.result == "w") {
-			masterWritten++;
-		}
-		if (d.level_of_education == "associate's degree" && d.result == "r") {
-			associateOral++;
-		}
-		if (d.level_of_education == "associate's degree" && d.result == "w") {
-			associateWritten++;
-		}
-		if (d.level_of_education == "high school" && d.result == "r") {
-			hiSchoolOral++;
-		}
-		if (d.level_of_education == "high school" && d.result == "w") {
-			hiSchoolWritten++;
-		}
-
-	})
-
-	oral = {
-		bachelorOral,
-		collegeOral,
-		masterOral,
-		associateOral,
-		hiSchoolOral
-	};
-	written = {
-		bachelorWritten,
-		collegeWritten,
-		masterWritten,
-		associateWritten,
-		hiSchoolWritten
-	};
-
+  oral = {
+    bachelorOral,
+    collegeOral,
+    masterOral,
+    associateOral,
+    hiSchoolOral
+  };
+  written = {
+    bachelorWritten,
+    collegeWritten,
+    masterWritten,
+    associateWritten,
+    hiSchoolWritten
+  };
 }
 
-
 function get_levelOfEducation_xAxisLable() {
-
-	return ["bachelor's degree", "college", "master's degree", "associate's degree", "high school"];
-
+  return [
+    "bachelor's degree",
+    "college",
+    "master's degree",
+    "associate's degree",
+    "high school"
+  ];
 }
 
 function get_levelOfEducation_OralData(data) {
-
-	this.get_levelOfEduvation_Values(data);
-	return oral;
-
+  this.get_levelOfEduvation_Values(data);
+  return oral;
 }
 
 function get_levelOfEducation_WrittenData(data) {
-
-	this.get_levelOfEduvation_Values(data);
-	return written;
-
+  this.get_levelOfEduvation_Values(data);
+  return written;
 }

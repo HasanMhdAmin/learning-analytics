@@ -14,14 +14,11 @@ function get_lunch_Values(data) {
     //################ Gender Section ################
     if (d.lunch == "standard" && d.result == "r") {
       standard_Oral++;
-    }
-    if (d.lunch == "standard" && d.result == "w") {
+    } else if (d.lunch == "standard" && d.result == "w") {
       standard_Written++;
-    }
-    if (d.lunch == "free/reduced" && d.result == "r") {
+    } else if (d.lunch == "free/reduced" && d.result == "r") {
       free_Oral++;
-    }
-    if (d.lunch == "free/reduced" && d.result == "w") {
+    } else if (d.lunch == "free/reduced" && d.result == "w") {
       free_Written++;
     }
   });
