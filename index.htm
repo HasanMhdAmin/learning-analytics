@@ -5,7 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Highcharteta Example</title>
-    <style type="text/css"></style>
+    <style type="text/css">
+      header {
+        background: linear-gradient(#225a92, #1a1780);
+        padding: 30px;
+        text-align: center;
+        font-size: 35px;
+        color: white;
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h2 {
+        display: inline;
+        margin-left: 100px;
+      }
+      img {
+        float: right;
+        margin-top: -9px;
+        margin-right: -30px;
+      }
+    </style>
   </head>
   <body>
     <script src="js/highcharts.js"></script>
@@ -28,10 +48,19 @@
       id="lunch"
       src="js/test_preparation_course.js"
     ></script>
+    <script type="text/javascript"></script>
+    <header>
+      <h2>Students Performance</h2>
+      <img
+        src="./images/logo_uni_due.jpg"
+        alt="uni"
+        width="300px"
+        height="100px"
+      />
+    </header>
     <div
       id="container"
       style="min-width: 310px; height: 400px; margin: 0 auto"
     ></div>
-    <script type="text/javascript"></script>
   </body>
 </html>
