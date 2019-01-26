@@ -31,10 +31,10 @@ d3.csv("data-set/student-data-set.csv").then(function(data) {
       type: "column"
     },
     title: {
-      text: "Monthly Average Rainfall"
+      text: "Exam Results"
     },
     subtitle: {
-      text: "Source: WorldClimate.com"
+      text: "Source: www.Kaggle.com"
     },
     xAxis: {
       categories: [],
