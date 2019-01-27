@@ -7,23 +7,28 @@
       <title>Highcharteta Example</title>
       <style type="text/css">
          header {
-         background: linear-gradient(#225a92, #1a1780);
-         padding: 30px;
-         text-align: center;
-         font-size: 35px;
-         color: white;
+            background: linear-gradient(#225a92, #1a1780);
+            padding: 30px;
+            text-align: center;
+            font-size: 35px;
+            color: white;
          }
          body {
-         font-family: Arial, Helvetica, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
          }
          h2 {
-         display: inline;
-         margin-left: 100px;
+            display: inline;
+            /*margin-left: 100px;*/
+         }
+         #filter {
+            margin-top: 30px;
+            margin-bottom: 20px;
+            text-align: center;   
          }
          img {
-         float: right;
-         margin-top: -9px;
-         margin-right: -30px;
+            float: right;
+            margin-top: -9px;
+            margin-right: -30px;
          }
       </style>
    </head>
@@ -45,13 +50,18 @@
             height="100px"
             /> -->
       </header>
-      <select id="attribute" onchange="bindData()">
-         <option value="gender">Gender</option>
-         <option value="ethnicity">Ethnicity</option>
-         <option value="level_of_education">Level of Education</option>
-         <option value="lunch">Lunch</option>
-         <option value="test_preparation_course">Test Preparation</option>
-      </select>
+      
+      <div id="filter">
+         Filter:
+         <select id="attribute" onchange="bindData()">
+            <option value="gender">Gender</option>
+            <option value="ethnicity">Ethnicity</option>
+            <option value="level_of_education">Level of Education</option>
+            <option value="lunch">Lunch</option>
+            <option value="test_preparation_course">Test Preparation</option>
+         </select>   
+      </div>
+      
       <div
          id="container"
          style="min-width: 310px; height: 400px; margin: 0 auto"
