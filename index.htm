@@ -32,15 +32,21 @@
          }
       </style>
    </head>
-   <body onload="bindData()">
+   <body onload="bindData()" style="width: auto">
+
+
+
       <script src="js/highcharts.js"></script>
-      <script type="text/javascript" src="js/d3.min.js"></script>
+
+   <script src="js/d3.v4.min.js"></script>
       <script type="text/javascript" src="js/main.js"></script>
       <script type="text/javascript" id="gender" src="js/gender.js"></script>
       <script type="text/javascript" id="level_of_education" src="js/level_of_education.js"></script>
       <script type="text/javascript" id="ethnicity" src="js/ethnicity.js"></script>
       <script type="text/javascript" id="lunch" src="js/lunch.js"></script>
       <script type="text/javascript" id="test_preparation_course" src="js/test_preparation_course.js"></script>
+      <link rel="stylesheet" type="text/css" href="css/family=Open+Sans.css">
+      <link rel="stylesheet" type="text/css" href="css/style.css"/>
       <header>
          <h2>Students Performance</h2>
          <img
@@ -66,6 +72,32 @@
          id="container"
          style="min-width: 310px; height: 400px; margin: 0 auto"
          >
+      </div>
+      <br>
+      <br>
+      <br>
+      <h2>Sequence Sun Burst Graph for Generic View</h2>
+      <br>
+      <br>
+      <br>
+      <div id="sidebar" style=" margin-right: 50%;" >
+         <input type="checkbox" id="togglelegend" > Legend<br/>
+         <div id="legend" style="visibility: hidden;" ></div>
+      </div>
+      <div id="main">
+         <div id="sequence"></div>
+         <div id="chart">
+            <div id="explanation" style="visibility: hidden;">
+               <span id="percentage"></span><br/>
+            </div>
+         </div>
+
+
+      <script type="text/javascript" src="js/pie.js"></script>
+   <script type="text/javascript" src="js/d3.min.js"></script>
+      <script type="text/javascript">
+          d3.select(self.frameElement).style("height", "400px");
+      </script>
       </div>
    </body>
 </html>
