@@ -1,3 +1,7 @@
+function bindData(){
+    console.log(document.getElementById("attribute").value);
+}
+
 var oral = [];
 var written = [];
 
