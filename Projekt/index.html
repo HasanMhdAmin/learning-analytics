@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sequences sunburst</title>
+    <script src="js/d3.v4.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/family=Open+Sans.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+<body>
+<div id="main">
+    <div id="sequence"></div>
+    <div id="chart">
+        <div id="explanation" style="visibility: hidden;">
+            <span id="percentage"></span><br/>
+        </div>
+    </div>
+</div>
+<div id="sidebar">
+    <input type="checkbox" id="togglelegend"> Legend<br/>
+    <div id="legend" style="visibility: hidden;"></div>
+</div>
+<script type="text/javascript" src="js/pie.js"></script>
+
+<script type="text/javascript">
+    d3.select(self.frameElement).style("height", "400px");
+
+</script>
+</body>
+</html>
